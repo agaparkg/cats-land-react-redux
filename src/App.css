@@ -1,38 +1,59 @@
-.App {
+body {
+  margin: 0;
+}
+
+.app {
+  margin: 100px auto;
+  border: 3px solid #ccc;
+  padding: 20px;
+  width: 200px;
   text-align: center;
+  font-family: 'Source Sans Pro';
+  color: #555;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.counter {
+  border: 1x solid #ccc;
+  padding: 5px;
+  margin-bottom: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.counter h2 {
+  margin: 0;
+  margin-bottom: 15px;
+  font-weight: 600;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.counter > div {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.count {
+  margin: 0 20px;
+  font-size: 30px;
+  flex-basis: 40px;
+  flex-grow: 0;
 }
 
-.App-link {
-  color: #61dafb;
+.counter button {
+  border: 1px solid #ccc;
+  color: #666;
+  font-size: 20px;
+  line-height: 0;
+  height: 30px;
+  width: 30px;
+  transition: 0.2s all;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.counter button:active,
+.counter button:focus {
+  outline: none;
+  box-shadow: 0 0 2px rgb(87, 156, 87);
+}
+
+.counter button:active {
+  background-color: rgb(87, 156, 87);
+  border-color: rgb(35, 141, 35);
+  color: #fff;
 }
