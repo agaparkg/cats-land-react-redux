@@ -1,53 +1,43 @@
-import React, { useState } from 'react';
-import './App.css';
-import { useDispatch, useSelector, useStore } from 'react-redux';
-import {
-  decrement,
-  increment,
-  incrementByAmount,
-  getNumberInfo,
-} from './actions';
+import React from "react";
+import MainContent from "./components/MainContent";
+import "./App.css";
+import { useDispatch, useSelector } from "react-redux";
+import { updateLocalCatFacts, updateInputValue } from "./redux-store/actions";
+const cats = require("./images/cats1.jpg").default;
 
 const App = () => {
-  const store = useStore();
   const dispatch = useDispatch();
-  // state values
-  const count = useSelector((state) => state.countReducer.count);
-  const numberInfo = useSelector((state) => state.numberReducer.numberInfo);
-  const error = useSelector((state) => state.numberReducer.error);
+  const inputVal = useSelector((state) => state.inputValReducer.inputVal);
+  const localCats = useSelector((state) => state.localReducer.localCats);
 
-  const [amount, setAmount] = useState(2);
-  console.log('store', store.getState());
+  const handleAddClick = () => {
+    if (inputVal) {
+      const newCatFact = {};
+      const newLocal = [...localCats];
+      const check = newLocal.some((fact) => {
+        return fact.text === inputVal;
+      });
+      if (!check) {
+        newCatFact["id"] = newLocal.length
+          ? newLocal[newLocal.length - 1].id + 1
+          : 1;
+        newCatFact["text"] = inputVal;
+        newCatFact["deleted"] = false;
+        newCatFact["favorite"] = false;
+        newLocal.push(newCatFact);
+        dispatch(updateLocalCatFacts(newLocal));
+        dispatch(updateInputValue(""));
+      }
+    }
+  };
 
   return (
-    <div className="app">
-      <div className="counter">
-        <h1>Counter</h1>
-        <div>
-          <button onClick={() => dispatch(decrement(count))}> - </button>
-          <div className="count">{count} </div>
-          <button onClick={() => dispatch(increment(count))}> + </button>
-        </div>
-      </div>
-      <div>
-        <input
-          value={amount}
-          onChange={(e) => setAmount(Number(e.target.value) || 0)}
-        />
-      </div>
-      <div>
-        <button onClick={() => dispatch(incrementByAmount(amount))}>
-          {' '}
-          +{amount}{' '}
-        </button>
-      </div>
-
-      <div style={{ marginTop: '20px' }}>
-        <button onClick={() => dispatch(getNumberInfo(count))}>
-          Click to learn more about this number
-        </button>
-      </div>
-      <div style={{ marginTop: '20px' }}>{error ? error : numberInfo}</div>
+    <div className="App">
+      <header>
+        <h1>CATS-LAND</h1>
+        <img src={cats} alt="cats avatar" />
+      </header>
+      <MainContent handleAddClick={handleAddClick} />
     </div>
   );
 };
