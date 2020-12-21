@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Spinner } from "reactstrap";
 import { fetchApiCatFacts } from "../redux-store/actions";
 import { useDispatch, useSelector } from "react-redux";
 import SingleApiCat from "./SingleApiCat";
@@ -6,6 +7,8 @@ import SingleApiCat from "./SingleApiCat";
 const ApiCats = () => {
   const dispatch = useDispatch();
   const apiCats = useSelector((state) => state.apiReducer.apiCats);
+  const isLoading = useSelector((state) => state.loadingReducer.loading);
+  const apiFetchError = useSelector((state) => state.apiErrorReducer.error);
 
   useEffect(() => {
     dispatch(fetchApiCatFacts());
@@ -26,9 +29,15 @@ const ApiCats = () => {
         </a>
         {")"}
       </div>
-      {apiCats.map((cat, idx) => {
-        return <SingleApiCat key={cat._id} cat={cat} idx={idx} />;
-      })}
+      {isLoading ? (
+        apiCats.map((cat, idx) => {
+          return <SingleApiCat key={cat._id} cat={cat} idx={idx} />;
+        })
+      ) : (
+        <div style={{ textAlign: "center" }}>
+          {apiFetchError === "" ? <Spinner color="primary" /> : apiFetchError}
+        </div>
+      )}
     </div>
   );
 };
