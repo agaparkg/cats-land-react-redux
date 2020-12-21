@@ -3,28 +3,12 @@ import ApiCats from "./ApiCats";
 import LocalCats from "./LocalCats";
 import AddCatFacts from "./AddCatFacts";
 
-const MainContent = ({
-  apiCats,
-  localCats,
-  handleAddClick,
-  handleFactDelete,
-  inputVal,
-  setInputVal,
-  handleSelectFavorite,
-}) => {
+const MainContent = ({ handleAddClick }) => {
   return (
     <div className="main-content">
-      <ApiCats apiCats={apiCats} />
-      <LocalCats
-        handleSelectFavorite={handleSelectFavorite}
-        localCats={localCats}
-        handleFactDelete={handleFactDelete}
-      />
-      <AddCatFacts
-        inputVal={inputVal}
-        setInputVal={setInputVal}
-        handleAddClick={handleAddClick}
-      />
+      <ApiCats />
+      <LocalCats />
+      <AddCatFacts />
     </div>
   );
 };
