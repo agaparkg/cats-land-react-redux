@@ -1,6 +1,6 @@
 ## Cats Land React App with Redux (state management JS Library)
 
-![Output](images/readme.png)
+![Output](readme.png)
 
 This app was built with React v17.0.1
 
