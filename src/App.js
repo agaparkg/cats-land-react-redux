@@ -1,15 +1,12 @@
 import React from "react";
 import MainContent from "./components/MainContent";
+import Header from "./components/Header";
 import "./App.css";
-const cats = require("./images/cats1.jpg").default;
 
 const App = () => {
   return (
     <div className="App">
-      <header>
-        <h1>CATS-LAND</h1>
-        <img src={cats} alt="cats avatar" />
-      </header>
+      <Header />
       <MainContent />
     </div>
   );
