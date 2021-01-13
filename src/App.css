@@ -1,0 +1,72 @@
+.App {
+  width: 1000px;
+  margin: 20px auto;
+  background-color: #bbd1ea;
+  padding: 20px;
+}
+
+.main-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.common {
+  flex: 1;
+  background-color: #dae3e5;
+}
+
+.cat-facts-local {
+  margin: 0 20px;
+}
+
+.add-cat-facts-to-local {
+  background-color: #bbd1ea;
+}
+
+#cat-facts-from-api-header,
+#cat-facts-local-header {
+  text-align: center;
+  padding: 10px;
+}
+
+.each-local-cat-fact {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.each-api-cat-fact,
+.each-local-cat-fact {
+  border: 1px solid grey;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.each-local-cat-fact-text {
+  flex: 1;
+}
+
+#add-btn {
+  float: right;
+  margin-top: 10px;
+}
+
+#debounce-input {
+  width: 100%;
+}
+
+.delete-btn {
+  margin-left: 10px;
+}
+
+header {
+  position: relative;
+}
+
+header img {
+  position: absolute;
+  left: 220px;
+  top: -19px;
+  width: 130px;
+}
