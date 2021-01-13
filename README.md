@@ -12,6 +12,10 @@ It only grabs 10 cat facts, change the number at the end to get more cat facts.
 
 ## Deployment
 
-This React App has been deployed to Heroku.
+This React App has been deployed to Heroku and Surge.sh.
 
-[Click here](https://cats-land-react-redux-app.herokuapp.com/) to see the UI output in Heroku.
+[Click here for Heroku](https://cats-land-react-redux-app.herokuapp.com/) to see the UI output in Heroku.
+
+### OR
+
+[Click here for Surge](thin-jar.surge.sh) to see the UI output in Surge.sh.
