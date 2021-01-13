@@ -18,4 +18,4 @@ This React App has been deployed to Heroku and Surge.sh.
 
 ### OR
 
-[Click here for Surge](thin-jar.surge.sh) to see the UI output in Surge.sh.
+[Click here for Surge](http://thin-jar.surge.sh/) to see the UI output in Surge.sh.
